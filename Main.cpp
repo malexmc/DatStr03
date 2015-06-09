@@ -1,14 +1,16 @@
-#include <iostream>
+#include "stdafx.h"
+
+/*#include <iostream>
 #include "Inbox.cpp"
 
 using namespace std;
 
-int main(){
+/*int main(){
     Inbox myInbox = Inbox();
     string a = "a";
     string b = "b";
     string c = "c";
-    myInbox.InsertComm(c);
+    myInbox.InsertComm(c);'
     myInbox.InsertComm(b);
     myInbox.InsertComm(a);
     myInbox.InsertComm(c);
@@ -17,4 +19,4 @@ int main(){
     cout << "Done.";
     
     return 1;
-}
+}*/

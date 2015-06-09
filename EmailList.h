@@ -1,38 +1,40 @@
-#include <iostream>
-#include <string>
-using namespace std;
 #ifndef EMAILLIST_H
 #define EMAILLIST_H
 
-struct email{
-  string to;
-  string from;
-  string message;
+#include <string>
+using namespace std;
+
+// <will>
+// I removed the Email struct and put its contents directly into EmailNode. I also renamed EmailNode to become PascalCased. 
+// Finally, I removed the subject and quantity fields, as these values are common to all emails in the given list.
+struct EmailNode {
+    EmailNode* prev;
+    EmailNode* next;
+    string to;
+	string from;
+	string message;
 };
 
-struct emailnode{
-    emailnode* prev;
-    emailnode* next;
-    string subject;    
-    email* emailHead;
-    unsigned int quantity;
-};
-
-
-
-class EmailList(){
+class EmailList {
 public:
-  EmailList();
-  ~EmailList();  
+	EmailList(string);
+	EmailList(const EmailList&);
+	~EmailList();  
 
-  void Insert();
-  void Delete();
-  
+	// <will>
+	// Added EmailNode* parameters to the first method. I also update the signatures in the .cpp file.
+	void Insert(EmailNode* node);
+	void Delete();
 
 private:
-  email* head;
-  email* tail;
-  unsigned int size;
+	EmailNode* head;
+	EmailNode* tail;
+
+	unsigned int size;
+	
+	// <will>
+	// Added subject field. I moved this from the node objects to here.
+	string subject;
 };
 
 #endif //EMAILLIST_H
