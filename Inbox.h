@@ -1,3 +1,4 @@
+#include "EmailList.h"
 #include <iostream>
 #include <string>
 
@@ -6,12 +7,14 @@ using namespace std;
 #ifndef INBOX_H
 #define INBOX_H
 
-struct node{
-    node* prev;
-    node* next;
+struct inboxnode{
+    inboxnode* prev;
+    inboxnode* next;
     string subject;    
+    EmailList* emailHead;
     unsigned int quantity;
 };
+
 
 class Inbox {
     public:
@@ -22,10 +25,10 @@ class Inbox {
     void DisplayInbox();
     
     private:
-    node* head;
-    node* tail;
+    inboxnode* head;
+    inboxnode* tail;
     unsigned int size;
-    node* SearchCommunication(string);
+    inboxnode* SearchCommunication(string);
     int GetQuantity();
 };
 

@@ -12,7 +12,7 @@ int main(){
     myInbox.InsertComm(b);
     myInbox.InsertComm(a);
     myInbox.InsertComm(c);
-        myInbox.InsertComm(c);
+    myInbox.InsertComm(c);
     myInbox.DisplayInbox();
     cout << "Done.";
     

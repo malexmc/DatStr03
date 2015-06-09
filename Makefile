@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -ggdb -I.
 LDFLAGS=
-SOURCES= Main.cpp Inbox.h
+SOURCES= Main.cpp Inbox.h EmailList.h
 EXECUTABLE=execute.out
 
 TESTS = IntVec_test.h

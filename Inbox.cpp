@@ -1,4 +1,5 @@
 #include "Inbox.h"
+#include "EmailList.h"
 #include <iostream>
 #include <string>
 
@@ -11,11 +12,12 @@ Inbox::Inbox(){
     size = 0;
 };
 
+
 //Destructor
 Inbox::~Inbox(){
     while(head){
         delete head->prev;
-        node* temp = head->next;
+        inboxnode* temp = head->next;
         delete head->next;
         head = temp;
     }
@@ -23,8 +25,9 @@ Inbox::~Inbox(){
     delete tail;
 }
 
-node* Inbox::SearchCommunication(string key) {
-    node* curr = head;
+
+inboxnode* Inbox::SearchCommunication(string key) {
+    inboxnode* curr = head;
     while(curr){
         if (!key.compare(curr->subject)){
             return curr;
@@ -46,7 +49,7 @@ int Inbox::GetQuantity(){
 //Inserts a communication into the list
 void Inbox::InsertComm(string comm){
     if(size == 0){
-        node* newNode = new node();
+        inboxnode* newnode = new inboxnode();
         head = newNode;
         tail = newNode;
         newNode->prev = NULL;
@@ -58,7 +61,7 @@ void Inbox::InsertComm(string comm){
     
     else if(size == 1){
         if(!SearchCommunication(comm)){
-            node* newNode = new node();
+            inboxnode* newNode = new inboxnode();
             newNode->subject = comm;
             newNode->quantity = 1;
             head->prev = newNode;
@@ -74,7 +77,7 @@ void Inbox::InsertComm(string comm){
     }
     
     else if (size > 1){
-        node* match = SearchCommunication(comm);
+        inboxnode* match = SearchCommunication(comm);
         if(match){
             if(match == tail){
                 tail->quantity += 1;
@@ -99,7 +102,7 @@ void Inbox::InsertComm(string comm){
             }
         }
         else{
-            node* newNode = new node();
+            inboxnode* newNode = new inboxnode();
             newNode->subject = comm;
             newNode->quantity = 1;
             head->prev = newNode;
@@ -112,7 +115,7 @@ void Inbox::InsertComm(string comm){
 
 //Prints the contents of the Inbox to the screen
 void Inbox::DisplayInbox(){
-    node* curr = head;
+    inboxnode* curr = head;
     cout << "Inbox: Total number of emails is " << GetQuantity() << "." << endl << endl;
     while(curr){
         cout << curr->subject << "-" << curr->quantity << " email(s)" << endl;
