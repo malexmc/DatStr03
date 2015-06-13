@@ -24,7 +24,7 @@ public:
 	// <will>
 	// Added EmailNode* parameters to the first method. I also update the signatures in the .cpp file.
 	void Insert(EmailNode* node);
-	void Delete();
+	void Delete( EmailNode* node );
 
 private:
 	EmailNode* head;
