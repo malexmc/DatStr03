@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <iostream>
 #include <string>
@@ -96,7 +96,23 @@ void EmailList::Insert(EmailNode* node) {
 }
 
 
-//Delete a node from the EmailList
-void EmailList::Delete() {
-	// TODO: Implement
+// <John> Deletes a node from the EmailList
+void EmailList::Delete( EmailNode* node) {
+	if (node == head){
+		head = node->next;
+	}
+	else if (node == tail){
+		tail = node->prev;
+	}
+
+	EmailNode* prevNode = node->prev;
+	EmailNode* nextNode = node->next;
+
+	if (prevNode != 0)
+		prevNode->next = nextNode;
+
+	if (nextNode != 0)
+		nextNode->prev = prevNode;
+
+	delete node;
 }
