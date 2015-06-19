@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -ggdb -I.
 LDFLAGS=
-SOURCES=main.cpp Triangle.cpp EquilateralTriangle.cpp IsoscelesTriangle.cpp Square.cpp Rectangle.cpp Pentagon.cpp Hexagon.cpp Octagon.cpp Utilities.cpp
+SOURCES=EmailList.cpp Inbox.cpp Main.cpp
 EXECUTABLE=Polygonfactory
 
 TESTS = IntVec_test.h

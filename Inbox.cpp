@@ -51,20 +51,6 @@ Inbox::~Inbox() {
     }
 }
 
-// <will>
-// I rewrote this function to go with my adjusted InsertEmail method.
-// Just switch the comments to go back and forth between the two.
-/*InboxNode* Inbox::SearchCommunication(string key) {
-    InboxNode* curr = head;
-    while(curr){
-        if (!key.compare(curr->subject)){
-            return curr;
-        }
-        curr = curr->next;
-    }
-    return curr;
-}*/
-
 void Inbox::DeleteCommunication(string subjectToDelete) {
     InboxNode* nodeToDelete = SearchCommunication(subjectToDelete);
     if (nodeToDelete == 0) {
@@ -128,80 +114,6 @@ int Inbox::GetTotalNumberOfEmails() {
     }
     return count;
 }
-
-//Inserts a communication into the list
-// <will>
-// You list the parameter as "comm", but isn't it actually the subject?
-// Also, this will probably need to change in the future to support emails instead of just subjects.
-// I actually went ahead and rewrote the function to remove some of the boilerplate. My version has
-// a lot less copy/paste sort of stuff going on, and it commented thouroughly, so I think we should use
-// it moving forward. If you disagree, let's discuss.
-
-/*void Inbox::InsertEmail(string comm){
-    if(size == 0) {
-                InboxNode* newNode = new InboxNode();
-        head = newNode;
-        tail = newNode;
-        newNode->prev = NULL;
-        newNode->next = NULL;
-        newNode->subject = comm;
-        newNode->numberOfEmails = 1;
-        size++;
-    }
-    
-    else if(size == 1){
-        if(!SearchCommunication(comm)){
-            InboxNode* newNode = new InboxNode();
-            newNode->subject = comm;
-                        newNode->numberOfEmails = 1;
-            head->prev = newNode;
-            newNode->next = head;
-            newNode->prev = NULL;
-            
-            head = newNode;
-            size++;
-        }
-        else{
-            head->numberOfEmails += 1;
-        }
-    }
-    
-    else if (size > 1){
-        InboxNode* match = SearchCommunication(comm);
-        if(match){
-            if(match == tail){
-                tail->numberOfEmails += 1;
-                tail->prev->next = NULL;
-                tail->next = head;
-                head->prev = tail;
-                tail = tail->prev;
-                head = head->prev;
-                head->prev = NULL;
-            }
-            else if (match == head){
-                head->numberOfEmails += 1;
-            }
-            else{
-                match->quantity += 1;
-                match->prev->next = match->next;
-                match->next->prev = match->prev;
-                head->prev = match;
-                match->next = head;
-                head = match;
-                head->prev = NULL;
-            }
-        }
-        else{
-                        InboxNode* newNode = new InboxNode();
-            newNode->subject = comm;
-            newNode->quantity = 1;
-            head->prev = newNode;
-            newNode->next = head;
-            head = newNode;
-            size++;
-        }
-    }
-}*/
 
 void Inbox::InsertEmail(string subject) {
     InboxNode* match = SearchCommunication(subject);
