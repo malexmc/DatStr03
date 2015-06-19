@@ -58,15 +58,10 @@ EmailList::~EmailList() {
 		// I don't think you meant to delete "next" here; we should be deleting the current head instead.
         //delete head->next;
 		delete head;
+                head = 0;
 
         head = temp;
     }
-
-	// <will>
-	// Shouldn't these get cleaned up in the while loop?
-	//delete head;
-    //delete tail;
-
 }
 
 // <will>
