@@ -2,7 +2,7 @@ CC=g++
 CFLAGS=-c -Wall -ggdb -I.
 LDFLAGS=
 SOURCES=EmailList.cpp Inbox.cpp Main.cpp
-EXECUTABLE=Polygonfactory
+EXECUTABLE=inbox.out
 
 TESTS = IntVec_test.h
 OBJECTSTEST=IntVec.o
