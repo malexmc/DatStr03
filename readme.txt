@@ -1,6 +1,0 @@
-<Alex> June 8th
-She asks for functionality of email nodes that won't ever run in the program...
-That needs to be asked about.
-
-Tried to implement basic comm nodes, InsertEmail(), SearchCOmmunication(), and DisplayInbox().
-Seems to work alright.
