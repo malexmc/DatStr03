@@ -19,7 +19,6 @@ struct InboxNode {
     unsigned int numberOfEmails;
 };
 
-
 class Inbox {
 public:
     Inbox();
